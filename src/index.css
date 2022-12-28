@@ -2,11 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* stylelint-disable */
-/* // http://meyerweb.com/eric/tools/css/reset/
-// v2.0 | 20110126
-// License: none (public domain)
-@use '/src/styles/constants/fonts'; */
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  width: 100vw;
+  height: 100vh;
+  @apply flex flex-col items-center;
+  @apply bg-zinc-900 text-gray-50;
+}
+
+#root {
+  @apply w-full max-w-screen-2xl;
+}
 
 html,
 body,
@@ -88,16 +99,16 @@ time,
 mark,
 audio,
 video {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    word-break: keep-all;
-    word-wrap: break-word;
-    vertical-align: baseline;
-    border: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  word-break: keep-all;
+  word-wrap: break-word;
+  vertical-align: baseline;
+  border: 0;
 }
 a {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -112,64 +123,58 @@ hgroup,
 menu,
 nav,
 section {
-    display: block;
-}
-
-body {
-    letter-spacing: -0.01em;
-    line-height: 1.4;
-    color: #222;
+  display: block;
 }
 
 ol,
 ul,
 li {
-    list-style: none;
+  list-style: none;
 }
 
 blockquote,
 q {
-    quotes: none;
+  quotes: none;
 }
 
 blockquote::before,
 blockquote::after,
 q::before,
 q::after {
-    content: '';
-    content: none;
+  content: '';
+  content: none;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 input,
 select,
 textarea {
-    vertical-align: middle;
-    box-sizing: border-box;
-    border-radius: 0;
-    /* font-family: fonts.$PRIMERY_FONT; */
-    font-size: 1rem;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 0;
+  /* font-family: fonts.$PRIMERY_FONT; */
+  font-size: 1rem;
 }
 
 input {
-    margin: 0;
+  margin: 0;
 }
 
 img,
 fieldset {
-    border: 0;
+  border: 0;
 }
 
 button {
-    box-sizing: border-box;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    /* font-family: fonts.$PRIMERY_FONT; */
-    font-size: 1rem;
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  /* font-family: fonts.$PRIMERY_FONT; */
+  font-size: 1rem;
 }

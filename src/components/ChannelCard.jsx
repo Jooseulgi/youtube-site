@@ -1,25 +1,34 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
 import dummy from '../apis/transVideo.json'
+import dummy2 from '../apis/keyword.json'
+import VideoCard from './VideoCard'
 
 const ChannelCard = () => {
-  const [data, setData] = useState(dummy)
-  console.log(setData)
+  const { keyword } = useParams()
+  const {
+    isLoding,
+    error,
+    data: videos,
+  } = useQuery(['videos', keyword], async () => {
+    return fetch(`/apis/${keyword ? 'keyword' : 'transVideo'}.json`)
+      .then(res => res.json())
+      .then(data => data.items)
+  })
+
   return (
-    <ul className="grid grid-cols-5 gap-2">
-      {data.items.map(el => (
-        <a href={el.id} key={el.snippet.channelId}>
-          <li>
-            <div>
-              <img src={el.snippet.thumbnails.standard.url} alt="" />
-            </div>
-            <p>{el.snippet.title}</p>
-            <p>{el.snippet.channelTitle}</p>
-            <p>{el.snippet.publishedAt}</p>
-          </li>
-        </a>
-      ))}
-    </ul>
+    <div>
+      <div>Videos {keyword ? `${keyword}` : '핫'}</div>
+      {isLoding && <p>Loding....</p>}
+      {error && <p>Something is wrong</p>}
+      {videos && (
+        <ul>
+          {videos.map(video => (
+            <VideoCard key={video.id} video={video} />
+          ))}
+        </ul>
+      )}
+    </div>
   )
 }
 

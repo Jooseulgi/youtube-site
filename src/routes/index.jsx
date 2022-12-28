@@ -1,14 +1,15 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Detail from '../pages/detail'
-import Main from '../pages/main'
+import Video from '../pages/video'
 
 const RootRoute = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/video/:id" element={<Detail />} />
+        <Route path="/" element={<Video />} />
+        <Route path="videos/:keyword" element={<Video />} />
+        <Route path="videos/:videoId" element={<Detail />} />
       </Routes>
     </BrowserRouter>
   )

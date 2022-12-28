@@ -1,10 +1,10 @@
 import React from 'react'
-import ChannelCard from '../components/ChannelCard'
+import ChannelDetail from '../components/ChannelDetail'
 
 const Detail = () => {
   return (
     <div>
-      <ChannelCard />
+      <ChannelDetail />
     </div>
   )
 }

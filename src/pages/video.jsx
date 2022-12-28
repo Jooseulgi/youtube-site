@@ -2,7 +2,7 @@ import React from 'react'
 import ChannelCard from '../components/ChannelCard'
 import Header from '../components/Header'
 
-const Home = () => {
+const Video = () => {
   return (
     <div>
       <Header />
@@ -11,4 +11,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Video
