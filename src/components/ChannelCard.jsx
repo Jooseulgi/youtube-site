@@ -1,26 +1,24 @@
+import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import dummy from '../apis/transVideo.json'
-import dummy2 from '../apis/keyword.json'
 import VideoCard from './VideoCard'
 
 const ChannelCard = () => {
   const { keyword } = useParams()
   const {
-    isLoding,
+    isLoading,
     error,
     data: videos,
   } = useQuery(['videos', keyword], async () => {
-    return fetch(`/apis/${keyword ? 'keyword' : 'transVideo'}.json`)
-      .then(res => res.json())
-      .then(data => data.items)
+    // fetch는 json으로 변환하는 번거로움, 에러핸들링이 번거롭다
+    return axios.get(`/videos/${keyword ? 'search' : 'popular'}.json`).then(res => res.data.items)
   })
 
   return (
-    <div>
-      <div>Videos {keyword ? `${keyword}` : '핫'}</div>
-      {isLoding && <p>Loding....</p>}
-      {error && <p>Something is wrong</p>}
+    <>
+      <div>Videos {keyword ? `🔍${keyword}` : '🔥'}</div>
+      {isLoading && <p>Loading...</p>}
+      {error && <p>Something is wrong 😖</p>}
       {videos && (
         <ul>
           {videos.map(video => (
@@ -28,7 +26,7 @@ const ChannelCard = () => {
           ))}
         </ul>
       )}
-    </div>
+    </>
   )
 }
 

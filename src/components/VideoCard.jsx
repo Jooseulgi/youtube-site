@@ -1,21 +1,16 @@
 import React from 'react'
-import { checkPropTypes } from 'prop-types'
 
 const VideoCard = ({ video }) => {
   return (
-    <div>
-      {/* <div>
+    <div className="grid grid-cols-5 gap-2">
+      <div>
         <img src={video.snippet.thumbnails.high.url} alt="" />
-      </div> */}
-      <p>{video}</p>
-      {/* <p>{video.snippet.channelTitle}</p>
-      <p>{video.snippet.publishedAt}</p> */}
+      </div>
+      <p>{video.snippet.title}</p>
+      <p>{video.snippet.channelTitle}</p>
+      <p>{video.snippet.publishedAt}</p>
     </div>
   )
-}
-
-VideoCard.propsTypes = {
-  video: checkPropTypes.any.isRequired,
 }
 
 export default VideoCard
