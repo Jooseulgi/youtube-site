@@ -1,11 +1,19 @@
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { search } from '../apis/youtube'
+import { FakeYoutube } from '../apis/fakeYoutube'
+import { Youtube } from '../apis/youtube'
 import VideoCard from './VideoCard'
 
 const ChannelCard = () => {
   const { keyword } = useParams()
-  const { isLoading, error, data: videos } = useQuery(['videos', keyword], () => search(keyword))
+  const {
+    isLoading,
+    error,
+    data: videos,
+  } = useQuery(['videos', keyword], () => {
+    const youtube = new Youtube()
+    return youtube.search(keyword)
+  })
 
   return (
     <>
