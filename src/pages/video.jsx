@@ -1,12 +1,12 @@
 import React from 'react'
-import ChannelCard from '../components/ChannelCard'
 import Header from '../components/Header'
+import VideoList from '../components/VideoList'
 
 const Video = () => {
   return (
     <div>
       <Header />
-      <ChannelCard />
+      <VideoList />
     </div>
   )
 }

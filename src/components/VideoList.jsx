@@ -4,7 +4,7 @@ import { FakeYoutube } from '../apis/fakeYoutube'
 import { Youtube } from '../apis/youtube'
 import VideoCard from './VideoCard'
 
-const ChannelCard = () => {
+const VideoList = () => {
   const { keyword } = useParams()
   const {
     isLoading,
@@ -21,7 +21,7 @@ const ChannelCard = () => {
       {isLoading && <p>Loading...</p>}
       {error && <p>Something is wrong 😖</p>}
       {videos && (
-        <ul>
+        <ul className="grid grid-cols-5 gap-2">
           {videos.map(video => (
             <VideoCard key={video.id} video={video} />
           ))}
@@ -31,4 +31,4 @@ const ChannelCard = () => {
   )
 }
 
-export default ChannelCard
+export default VideoList

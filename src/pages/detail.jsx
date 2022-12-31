@@ -1,10 +1,10 @@
 import React from 'react'
-import ChannelDetail from '../components/ChannelDetail'
+import VideoDetail from '../components/VideoDetail'
 
 const Detail = () => {
   return (
     <div>
-      <ChannelDetail />
+      <VideoDetail />
     </div>
   )
 }

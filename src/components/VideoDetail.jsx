@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const ChannelDetail = () => {
+const VideoDetail = () => {
   //   let findProduct = props.products.find(function(product) {
   //     return product.id = id;
   // });
@@ -16,4 +16,4 @@ const ChannelDetail = () => {
   )
 }
 
-export default ChannelDetail
+export default VideoDetail
