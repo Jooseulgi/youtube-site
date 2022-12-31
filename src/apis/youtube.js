@@ -18,7 +18,7 @@ class Youtube {
   async #searchByKeyword(keyword) {
     return this.httpClient
       .get('search', {
-        parems: {
+        params: {
           part: 'snippet',
           maxResults: 25,
           type: 'video',
@@ -32,12 +32,12 @@ class Youtube {
   async #mostPopular() {
     return this.httpClient
       .get('videos', {
-        parems: {
+        params: {
           part: 'snippet',
           maxResults: 25,
           chart: 'mostPopular',
         },
-      })(`/videos/transVideo.json`)
+      })
       .then(res => res.data.items)
   }
 }
