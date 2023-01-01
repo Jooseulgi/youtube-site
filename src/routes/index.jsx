@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Detail from '../pages/detail'
 import Video from '../pages/video'
+import Detail from '../pages/detail'
 
 const RootRoute = () => {
   return (
@@ -9,7 +9,7 @@ const RootRoute = () => {
       <Routes>
         <Route path="/" element={<Video />} />
         <Route path="videos/:keyword" element={<Video />} />
-        <Route path="videos/:videoId" element={<Detail />} />
+        <Route path="videos/watch/:videoId" element={<Detail />} />
       </Routes>
     </BrowserRouter>
   )
